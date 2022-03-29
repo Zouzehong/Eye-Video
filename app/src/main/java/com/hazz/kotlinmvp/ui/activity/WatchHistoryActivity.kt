@@ -1,13 +1,12 @@
 package com.hazz.kotlinmvp.ui.activity
 
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.hazz.kotlinmvp.Constants
 import com.hazz.kotlinmvp.MyApplication
 import com.hazz.kotlinmvp.R
 import com.hazz.kotlinmvp.base.BaseActivity
 import com.hazz.kotlinmvp.mvp.model.bean.HomeBean
 import com.hazz.kotlinmvp.ui.adapter.WatchHistoryAdapter
-import com.hazz.kotlinmvp.utils.Preference
 import com.hazz.kotlinmvp.utils.StatusBarUtil
 import com.hazz.kotlinmvp.utils.WatchHistoryUtils
 import kotlinx.android.synthetic.main.activity_about.*

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.classic.common.MultipleStatusView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.hazz.kotlinmvp.view.MultipleStatusView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/multipleStatusView"
     android:layout_width="match_parent"
@@ -10,12 +10,12 @@
     app:loadingView="@layout/layout_loading_view"
     app:noNetworkView="@layout/layout_network_view">
 
-    <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/mRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
         android:paddingBottom="@dimen/padding_tab_layout_bottom">
 
-    </android.support.v7.widget.RecyclerView>
-</com.classic.common.MultipleStatusView>
+    </androidx.recyclerview.widget.RecyclerView>
+</com.hazz.kotlinmvp.view.MultipleStatusView>

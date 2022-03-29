@@ -1,7 +1,7 @@
 package com.hazz.kotlinmvp.ui.fragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import com.hazz.kotlinmvp.R
 import com.hazz.kotlinmvp.base.BaseFragment
 import com.hazz.kotlinmvp.base.BaseFragmentAdapter
@@ -13,10 +13,7 @@ import com.hazz.kotlinmvp.showToast
 import com.hazz.kotlinmvp.utils.StatusBarUtil
 import kotlinx.android.synthetic.main.fragment_hot.*
 
-/**
- * Created by xuhao on 2017/11/9.
- * 热门
- */
+
 class HotFragment : BaseFragment(), HotTabContract.View {
 
     private val mPresenter by lazy { HotTabPresenter() }

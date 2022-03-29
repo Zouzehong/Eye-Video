@@ -2,14 +2,14 @@ package com.hazz.kotlinmvp.base
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
-import com.classic.common.MultipleStatusView
 import com.hazz.kotlinmvp.MyApplication
+import com.hazz.kotlinmvp.view.MultipleStatusView
 import io.reactivex.annotations.NonNull
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions

@@ -4,18 +4,18 @@ import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.content.res.Configuration
 import android.os.Build
-import android.support.v4.view.ViewCompat
-import android.support.v7.widget.LinearLayoutManager
+import androidx.core.view.ViewCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.transition.Transition
 import android.view.View
 import android.widget.ImageView
+import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.hazz.kotlinmvp.Constants
 import com.hazz.kotlinmvp.MyApplication
 import com.hazz.kotlinmvp.R
 import com.hazz.kotlinmvp.base.BaseActivity
-import com.hazz.kotlinmvp.glide.GlideApp
 import com.hazz.kotlinmvp.mvp.contract.VideoDetailContract
 import com.hazz.kotlinmvp.mvp.model.bean.HomeBean
 import com.hazz.kotlinmvp.mvp.presenter.VideoDetailPresenter
@@ -126,7 +126,7 @@ class VideoDetailActivity : BaseActivity(), VideoDetailContract.View {
         //增加封面
         val imageView = ImageView(this)
         imageView.scaleType = ImageView.ScaleType.CENTER_CROP
-        GlideApp.with(this)
+        Glide.with(this)
                 .load(itemData.data?.cover?.feed)
                 .centerCrop()
                 .into(imageView)
@@ -164,7 +164,7 @@ class VideoDetailActivity : BaseActivity(), VideoDetailContract.View {
             }
         })
         //设置返回按键功能
-        mVideoView.backButton.setOnClickListener({ onBackPressed() })
+        mVideoView.backButton.setOnClickListener{ onBackPressed() }
         //设置全屏按键功能
         mVideoView.fullscreenButton.setOnClickListener {
             //直接横屏
@@ -258,7 +258,7 @@ class VideoDetailActivity : BaseActivity(), VideoDetailContract.View {
      * 设置背景颜色
      */
     override fun setBackground(url: String) {
-        GlideApp.with(this)
+        Glide.with(this)
                 .load(url)
                 .centerCrop()
                 .format(DecodeFormat.PREFER_ARGB_8888)
@@ -274,7 +274,7 @@ class VideoDetailActivity : BaseActivity(), VideoDetailContract.View {
     }
 
 
-    override fun onConfigurationChanged(newConfig: Configuration?) {
+    override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         if (isPlay && !isPause) {
             mVideoView.onConfigurationChanged(this, newConfig, orientationUtils)

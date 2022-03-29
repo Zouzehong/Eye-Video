@@ -3,10 +3,8 @@ package com.hazz.kotlinmvp.ui.fragment
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.support.v4.app.ActivityOptionsCompat
-import android.support.v7.widget.DefaultItemAnimator
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.core.app.ActivityOptionsCompat
+import androidx.recyclerview.widget.*
 import com.hazz.kotlinmvp.R
 import com.hazz.kotlinmvp.base.BaseFragment
 import com.hazz.kotlinmvp.mvp.contract.HomeContract
@@ -16,6 +14,7 @@ import com.hazz.kotlinmvp.net.exception.ErrorStatus
 import com.hazz.kotlinmvp.showToast
 import com.hazz.kotlinmvp.ui.activity.SearchActivity
 import com.hazz.kotlinmvp.ui.adapter.HomeAdapter
+import com.hazz.kotlinmvp.ui.decoration.HomeDecoration
 import com.hazz.kotlinmvp.utils.StatusBarUtil
 import com.orhanobut.logger.Logger
 import com.scwang.smartrefresh.header.MaterialHeader
@@ -24,10 +23,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 @Suppress("DEPRECATION")
-/**
- * Created by xuhao on 2017/11/8.
- * 首页精选
- */
 
 class HomeFragment : BaseFragment(), HomeContract.View {
 
@@ -43,7 +38,6 @@ class HomeFragment : BaseFragment(), HomeContract.View {
     private var loadingMore = false
 
     private var isRefresh = false
-    private var mMaterialHeader: MaterialHeader? = null
 
     companion object {
         fun getInstance(title: String): HomeFragment {
@@ -55,10 +49,9 @@ class HomeFragment : BaseFragment(), HomeContract.View {
         }
     }
 
-    private val linearLayoutManager by lazy {
-        LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+    private val girdLayoutManager by lazy {
+        StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
     }
-
 
     private val simpleDateFormat by lazy {
         SimpleDateFormat("- MMM. dd, 'Brunch' -", Locale.ENGLISH)
@@ -79,21 +72,20 @@ class HomeFragment : BaseFragment(), HomeContract.View {
             isRefresh = true
             mPresenter.requestHomeData(num)
         }
-        mMaterialHeader = mRefreshLayout.refreshHeader as MaterialHeader?
+        val header = mRefreshLayout.refreshHeader as MaterialHeader
         //打开下拉刷新区域块背景:
-        mMaterialHeader?.setShowBezierWave(true)
+        header.setShowBezierWave(true)
         //设置下拉刷新主题颜色
         mRefreshLayout.setPrimaryColorsId(R.color.color_light_black, R.color.color_title_bg)
-
-
         mRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                     val childCount = mRecyclerView.childCount
-                    val itemCount = mRecyclerView.layoutManager.itemCount
-                    val firstVisibleItem = (mRecyclerView.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
-                    if (firstVisibleItem + childCount == itemCount) {
+                    val itemCount = mRecyclerView.layoutManager?.itemCount
+                    val firstVisibleItem = (mRecyclerView.layoutManager as StaggeredGridLayoutManager).findFirstVisibleItemPositions(IntArray(2))[0]
+                    val updateFactor = itemCount!! * 0.75
+                    if (firstVisibleItem + childCount >= updateFactor.toInt()) {
                         if (!loadingMore) {
                             loadingMore = true
                             mPresenter.loadMoreData()
@@ -103,10 +95,11 @@ class HomeFragment : BaseFragment(), HomeContract.View {
             }
 
             //RecyclerView滚动的时候调用
-            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                val currentVisibleItemPosition = linearLayoutManager.findFirstVisibleItemPosition()
-                if (currentVisibleItemPosition == 0) {
+                val currentVisibleItemPositions =
+                        girdLayoutManager.findFirstVisibleItemPositions(IntArray(2))
+                if (currentVisibleItemPositions[0] == 0) {
                     //背景设置为透明
                     toolbar.setBackgroundColor(getColor(R.color.color_translucent))
                     iv_search.setImageResource(R.mipmap.ic_action_search_white)
@@ -116,7 +109,7 @@ class HomeFragment : BaseFragment(), HomeContract.View {
                         toolbar.setBackgroundColor(getColor(R.color.color_title_bg))
                         iv_search.setImageResource(R.mipmap.ic_action_search_black)
                         val itemList = mHomeAdapter!!.mData
-                        val item = itemList[currentVisibleItemPosition + mHomeAdapter!!.bannerItemSize - 1]
+                        val item = itemList[currentVisibleItemPositions[0] + mHomeAdapter!!.bannerItemSize - 1]
                         if (item.type == "textHeader") {
                             tv_header_title.text = item.data?.text
                         } else {
@@ -182,8 +175,10 @@ class HomeFragment : BaseFragment(), HomeContract.View {
         //设置 banner 大小
         mHomeAdapter?.setBannerSize(homeBean.issueList[0].count)
 
+        mRecyclerView.layoutManager = girdLayoutManager
+        mRecyclerView.addItemDecoration(HomeDecoration(2,20))
         mRecyclerView.adapter = mHomeAdapter
-        mRecyclerView.layoutManager = linearLayoutManager
+
         mRecyclerView.itemAnimator = DefaultItemAnimator()
 
     }

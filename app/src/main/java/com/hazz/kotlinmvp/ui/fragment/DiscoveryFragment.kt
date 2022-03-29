@@ -1,12 +1,11 @@
 package com.hazz.kotlinmvp.ui.fragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import com.hazz.kotlinmvp.R
 import com.hazz.kotlinmvp.base.BaseFragment
 import com.hazz.kotlinmvp.base.BaseFragmentAdapter
 import com.hazz.kotlinmvp.utils.StatusBarUtil
-import com.hazz.kotlinmvp.view.TabLayoutHelper
 import kotlinx.android.synthetic.main.fragment_hot.*
 
 /**
@@ -51,9 +50,6 @@ class DiscoveryFragment : BaseFragment() {
          */
         mViewPager.adapter = BaseFragmentAdapter(childFragmentManager, fragments, tabList)
         mTabLayout.setupWithViewPager(mViewPager)
-        TabLayoutHelper.setUpIndicatorWidth(mTabLayout)
-
-
     }
 
     override fun lazyLoad() {

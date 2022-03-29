@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -27,9 +27,9 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
-    <android.support.design.widget.TabLayout
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/mTabLayout"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -38,13 +38,14 @@
         app:tabIndicatorColor="#000"
         app:tabIndicatorHeight="2dp"
         app:tabSelectedTextColor="#000"
-        app:tabTextColor="#5000" />
+        app:tabTextColor="#5000"
+        app:tabIndicator="@drawable/tab_indicator"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/division_line"
         android:background="@color/color_light_black"/>
 
-    <com.classic.common.MultipleStatusView xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.hazz.kotlinmvp.view.MultipleStatusView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/multipleStatusView"
         android:layout_width="match_parent"
@@ -54,10 +55,10 @@
         app:errorView="@layout/layout_error_view"
         app:loadingView="@layout/layout_loading_view"
         app:noNetworkView="@layout/layout_network_view">
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/mViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    </com.classic.common.MultipleStatusView>
+    </com.hazz.kotlinmvp.view.MultipleStatusView>
 
 </LinearLayout>

@@ -3,11 +3,14 @@ package com.hazz.kotlinmvp.ui.adapter
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.support.v4.app.ActivityCompat
-import android.support.v4.app.ActivityOptionsCompat
-import android.support.v4.util.Pair
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import cn.bingoogolapple.bgabanner.BGABanner
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.hazz.kotlinmvp.Constants
@@ -36,7 +39,7 @@ class HomeAdapter(context: Context, data: ArrayList<HomeBean.Issue.Item>)
 
         private const val ITEM_TYPE_BANNER = 1    //Banner 类型
         private const val ITEM_TYPE_TEXT_HEADER = 2   //textHeader
-        private const val ITEM_TYPE_CONTENT = 3    //item
+        internal const val ITEM_TYPE_CONTENT = 3    //item
     }
 
     /**
@@ -51,7 +54,7 @@ class HomeAdapter(context: Context, data: ArrayList<HomeBean.Issue.Item>)
      */
     fun addItemData(itemList: ArrayList<HomeBean.Issue.Item>) {
         this.mData.addAll(itemList)
-        notifyDataSetChanged()
+        notifyItemInserted(itemCount-1)
     }
 
 
@@ -213,7 +216,7 @@ class HomeAdapter(context: Context, data: ArrayList<HomeBean.Issue.Item>)
 
         holder.setText(R.id.tv_tag, tagText!!)
 
-        holder.setText(R.id.tv_category, "#" + itemData?.category)
+        /*holder.setText(R.id.tv_category, "#" + itemData?.category)*/
 
         holder.setOnItemClickListener(listener = View.OnClickListener {
             goToVideoPlayer(mContext as Activity, holder.getView(R.id.iv_cover_feed), item)
@@ -243,5 +246,26 @@ class HomeAdapter(context: Context, data: ArrayList<HomeBean.Issue.Item>)
         }
     }
 
+    /*override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+        if(recyclerView.layoutManager is GridLayoutManager){
+            val manager = recyclerView.layoutManager as StaggeredGridLayoutManager
+            manager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup(){
+                override fun getSpanSize(positon: Int): Int {
+                    if(getItemViewType(positon) == ITEM_TYPE_CONTENT){
+                        return 1
+                    }else{
+                        return 2
+                    }
+                }
+            }
+        }
+    }*/
 
+    override fun onViewAttachedToWindow(holder: ViewHolder) {
+        super.onViewAttachedToWindow(holder)
+        if(getItemViewType(holder.layoutPosition) != ITEM_TYPE_CONTENT){
+            val params = holder.itemView.layoutParams as StaggeredGridLayoutManager.LayoutParams
+            params.isFullSpan = true
+        }
+    }
 }

@@ -5,10 +5,7 @@ import io.reactivex.disposables.Disposable
 
 
 
-/**
- * Created by xuhao on 2017/11/16.
- *
- */
+
 open class BasePresenter<T : IBaseView> : IPresenter<T> {
 
     var mRootView: T? = null
@@ -42,7 +39,7 @@ open class BasePresenter<T : IBaseView> : IPresenter<T> {
         compositeDisposable.add(disposable)
     }
 
-    private class MvpViewNotAttachedException internal constructor() : RuntimeException("Please call IPresenter.attachView(IBaseView) before" + " requesting data to the IPresenter")
+    private class MvpViewNotAttachedException : RuntimeException("Please call IPresenter.attachView(IBaseView) before requesting data to the IPresenter")
 
 
 }
