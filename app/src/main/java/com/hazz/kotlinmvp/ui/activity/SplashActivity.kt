@@ -11,6 +11,8 @@ import com.hazz.kotlinmvp.MyApplication
 import com.hazz.kotlinmvp.R
 import com.hazz.kotlinmvp.base.BaseActivity
 import com.hazz.kotlinmvp.utils.AppUtils
+import com.hazz.kotlinmvp.utils.StatusBarUtil
+import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.activity_splash.*
 import pub.devrel.easypermissions.EasyPermissions
 
@@ -43,7 +45,7 @@ class SplashActivity : BaseActivity() {
 
     @SuppressLint("SetTextI18n")
     override fun initView() {
-
+        StatusBarUtil.darkMode(this)
         tv_app_name.typeface = textTypeface
         tv_splash_desc.typeface = descTypeFace
         tv_version_name.text = "v${AppUtils.getVerName(MyApplication.context)}"
@@ -82,7 +84,7 @@ class SplashActivity : BaseActivity() {
      */
     private fun checkPermission(){
         val perms = arrayOf(Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        EasyPermissions.requestPermissions(this, "KotlinMvp应用需要以下权限，请允许", 0, *perms)
+        EasyPermissions.requestPermissions(this, "Eye Video应用需要以下权限，请允许", 0, *perms)
 
     }
 

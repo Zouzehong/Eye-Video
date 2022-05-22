@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        style="@style/MultipleStatusView.Content"
         android:id="@+id/empty_view_tv"
-        android:text="@string/empty_view_hint"/>
+        style="@style/MultipleStatusView.Content"
+        android:text="@string/empty_view_hint" />
 </RelativeLayout>

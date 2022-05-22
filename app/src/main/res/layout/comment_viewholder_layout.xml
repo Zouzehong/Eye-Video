@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="10dp"
+    android:paddingTop="10dp">
+
+    <com.hazz.kotlinmvp.view.CircleImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/img_avatar"
+        app:borderColor="@color/color_gray"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/username_tv"
+        app:borderWidth="2dp"
+        app:type="circle" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/username_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:drawableRight="@mipmap/lv6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
+        android:layout_marginLeft="6dp"
+        android:drawablePadding="10dp"
+        tools:text="12345"/>
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/delete_iv"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@mipmap/ic_delete"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/comment_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/color_black"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/username_tv"
+        app:layout_constraintLeft_toLeftOf="@+id/username_tv"
+        tools:text="这是12345的评论"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/good_iv"
+        android:layout_width="20dp"
+        android:layout_height="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/comment_tv"
+        android:layout_marginTop="6dp"
+        android:src="@mipmap/ic_good"
+        app:layout_constraintLeft_toLeftOf="@+id/comment_tv" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/bad_iv"
+        android:layout_width="20dp"
+        android:layout_height="15dp"
+        app:layout_constraintTop_toTopOf="@+id/good_iv"
+        android:src="@mipmap/ic_bad"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintLeft_toRightOf="@+id/good_iv"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/forward_iv"
+        android:layout_width="20dp"
+        android:layout_height="15dp"
+        android:src="@mipmap/ic_forward"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintTop_toTopOf="@+id/good_iv"
+        app:layout_constraintLeft_toRightOf="@+id/bad_iv" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@+id/good_iv"
+        android:layout_marginTop="10dp"
+        android:background="@color/color_gray"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

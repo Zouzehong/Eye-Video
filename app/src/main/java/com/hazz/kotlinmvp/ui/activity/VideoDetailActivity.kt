@@ -12,15 +12,13 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.hazz.kotlinmvp.Constants
-import com.hazz.kotlinmvp.MyApplication
-import com.hazz.kotlinmvp.R
+import com.hazz.kotlinmvp.*
 import com.hazz.kotlinmvp.base.BaseActivity
 import com.hazz.kotlinmvp.mvp.contract.VideoDetailContract
 import com.hazz.kotlinmvp.mvp.model.bean.HomeBean
 import com.hazz.kotlinmvp.mvp.presenter.VideoDetailPresenter
-import com.hazz.kotlinmvp.showToast
 import com.hazz.kotlinmvp.ui.adapter.VideoDetailAdapter
+import com.hazz.kotlinmvp.ui.dialog.CommentDialog
 import com.hazz.kotlinmvp.utils.CleanLeakUtils
 import com.hazz.kotlinmvp.utils.StatusBarUtil
 import com.hazz.kotlinmvp.utils.WatchHistoryUtils
@@ -40,7 +38,7 @@ import java.util.*
  * Created by xuhao on 2017/11/25.
  * desc: 视频详情
  */
-class VideoDetailActivity : BaseActivity(), VideoDetailContract.View {
+class VideoDetailActivity : BaseActivity(), VideoDetailContract.View,onClickListener {
 
 
     companion object {
@@ -367,6 +365,10 @@ class VideoDetailActivity : BaseActivity(), VideoDetailContract.View {
             }
 
         })
+    }
+
+    override fun showCommentDialog(){
+        CommentDialog.getInstance(itemData.data!!.id.toString()).show(supportFragmentManager)
     }
 
 

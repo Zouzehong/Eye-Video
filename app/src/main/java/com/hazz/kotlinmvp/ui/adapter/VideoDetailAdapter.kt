@@ -12,6 +12,8 @@ import com.hazz.kotlinmvp.durationFormat
 import com.hazz.kotlinmvp.glide.GlideApp
 import com.hazz.kotlinmvp.glide.GlideRoundTransform
 import com.hazz.kotlinmvp.mvp.model.bean.HomeBean
+import com.hazz.kotlinmvp.onClickListener
+import com.hazz.kotlinmvp.ui.activity.VideoDetailActivity
 import com.hazz.kotlinmvp.view.recyclerview.MultipleType
 import com.hazz.kotlinmvp.view.recyclerview.ViewHolder
 import com.hazz.kotlinmvp.view.recyclerview.adapter.CommonAdapter
@@ -40,9 +42,11 @@ class VideoDetailAdapter(mContext: Context, data: ArrayList<HomeBean.Issue.Item>
         }) {
 
     private var textTypeface:Typeface?=null
+    private val listener:onClickListener
 
     init {
         textTypeface = Typeface.createFromAsset(MyApplication.context.assets, "fonts/FZLanTingHeiS-L-GB-Regular.TTF")
+        listener = (mContext as VideoDetailActivity)
     }
 
     /**
@@ -154,7 +158,7 @@ class VideoDetailAdapter(mContext: Context, data: ArrayList<HomeBean.Issue.Item>
                 Toast.makeText(MyApplication.context, "分享", Toast.LENGTH_SHORT).show()
             }
             getView<TextView>(R.id.tv_action_reply).setOnClickListener {
-                Toast.makeText(MyApplication.context, "评论", Toast.LENGTH_SHORT).show()
+                listener.showCommentDialog()
             }
         }
     }

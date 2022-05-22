@@ -5,6 +5,7 @@
     <color name="colorAccent">#EF5362</color>
 
     <color name="color_gray">#9a9a9a</color>
+    <color name="color_gray_comment">#EEEEEE</color>
     
     <color name="color_gray_translucent">#5000</color>
 
@@ -37,6 +38,8 @@
 
     <color name="color_blue">#87CEEB</color>
 
+    <color name="color_login_btn">#2B98FF</color>
+
     <!-- item 标题颜色 -->
     <color name="color_item_title">#000000</color>
 
@@ -50,6 +53,8 @@
     <color name="color_aquamarine">#7FFFD4</color>
 
     <color name="color_light_black">#5000</color>
+
+    <color name="color_red">#FF0000</color>
 
 
 

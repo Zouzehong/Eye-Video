@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        android:background="@color/color_title_bg">
+
+    <TextView
+        android:id="@+id/tv_header_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:text="登录"
+        android:textColor="@color/color_item_title"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+<com.hazz.kotlinmvp.view.MultipleStatusView
+    android:id="@+id/multipleStatusView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="50dp">
+
+        <com.hazz.kotlinmvp.view.ClearEditText
+            android:id="@+id/account_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:digits="0123456789"
+            android:drawableLeft="@mipmap/ic_account"
+            android:drawablePadding="5dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:hint="@string/login_account_hint_text"
+            android:inputType="text"
+            android:maxLines="1"
+            android:background="@drawable/comment_background"
+            android:padding="15dp"
+            android:singleLine="true"
+            android:textColor="@color/color_gray"
+            android:textColorHint="@color/color_darker_gray"
+            android:textCursorDrawable="@drawable/et_cursor"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.hazz.kotlinmvp.view.ClearEditText
+            android:id="@+id/password_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@mipmap/ic_password"
+            android:drawablePadding="5dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:hint="@string/login_password_hint_text"
+            android:imeOptions="actionSearch"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:background="@drawable/comment_background"
+            android:padding="15dp"
+            android:singleLine="true"
+            android:textColor="@color/color_gray"
+            android:textColorHint="@color/color_darker_gray"
+            android:textCursorDrawable="@drawable/et_cursor"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/account_view" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_forget_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:maxLines="1"
+            android:text="@string/login_forget_password"
+            android:textSize="13sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_view" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/confirm_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/login_btn_background"
+            android:text="@string/login_button_text"
+            android:textColor="@color/color_white"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_forget_password" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/register_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:text="@string/register_button_text"
+            android:textColor="@color/color_gray"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirm_btn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.hazz.kotlinmvp.view.MultipleStatusView>
+
+</LinearLayout>

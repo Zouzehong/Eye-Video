@@ -12,6 +12,7 @@ import com.orhanobut.logger.PrettyFormatStrategy
 import com.squareup.leakcanary.LeakCanary
 import com.squareup.leakcanary.RefWatcher
 import com.tencent.bugly.crashreport.CrashReport
+import java.lang.ref.WeakReference
 import kotlin.properties.Delegates
 
 
@@ -45,7 +46,7 @@ class MyApplication : Application(){
         initConfig()
         DisplayManager.init(this)
         registerActivityLifecycleCallbacks(mActivityLifecycleCallbacks)
-
+        UserManager.getUserStatus(this)
 
     }
 
@@ -104,6 +105,7 @@ class MyApplication : Application(){
             Log.d(TAG, "onDestroy: " + activity.componentName.className)
         }
     }
+
 
 
 }

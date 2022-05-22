@@ -9,8 +9,9 @@ import com.hazz.kotlinmvp.mvp.model.bean.HomeBean
 import com.hazz.kotlinmvp.ui.adapter.WatchHistoryAdapter
 import com.hazz.kotlinmvp.utils.StatusBarUtil
 import com.hazz.kotlinmvp.utils.WatchHistoryUtils
-import kotlinx.android.synthetic.main.activity_about.*
-import kotlinx.android.synthetic.main.layout_recyclerview.*
+import kotlinx.android.synthetic.main.layout_recyclerview.mRecyclerView
+import kotlinx.android.synthetic.main.layout_recyclerview.multipleStatusView
+import kotlinx.android.synthetic.main.layout_watch_history.*
 import java.util.*
 import kotlin.collections.ArrayList
 

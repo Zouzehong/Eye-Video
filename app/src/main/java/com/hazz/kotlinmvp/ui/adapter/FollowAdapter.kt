@@ -13,10 +13,7 @@ import com.hazz.kotlinmvp.view.recyclerview.MultipleType
 import com.hazz.kotlinmvp.view.recyclerview.ViewHolder
 import com.hazz.kotlinmvp.view.recyclerview.adapter.CommonAdapter
 
-/**
- * Created by xuhao on 2017/12/7.
- * desc: 关注 adapter
- */
+
 class FollowAdapter(context: Context, dataList: ArrayList<HomeBean.Issue.Item>)
     : CommonAdapter<HomeBean.Issue.Item>(context, dataList, object : MultipleType<HomeBean.Issue.Item> {
     override fun getLayoutId(item: HomeBean.Issue.Item, position: Int): Int {

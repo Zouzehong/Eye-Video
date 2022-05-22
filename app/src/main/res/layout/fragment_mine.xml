@@ -51,7 +51,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/nickname"
         android:textColor="@color/color_black"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -169,6 +168,25 @@
                 android:gravity="center|center_horizontal"
                 android:text="@string/feedback"
                 android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_reset"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center|center_horizontal"
+                android:text="@string/reset_pwd"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_sign_out"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center|center_horizontal"
+                android:textColor="@color/color_red"
+                android:text="@string/sign_out"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+
         </LinearLayout>
 
 

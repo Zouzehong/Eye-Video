@@ -5,5 +5,6 @@ package com.hazz.kotlinmvp.api
  */
 object UrlConstant{
     const val BASE_URL = "http://baobab.kaiyanapp.com/api/"
-
+    const val ROOT_URL = "http://zzh.free.idcfengye.com"
+    /*const val ROOT_URL = "127.0.0.1:8081"*/
 }

@@ -1,7 +1,11 @@
 package com.hazz.kotlinmvp.net
 
+import android.util.Log
+import com.bumptech.glide.RequestBuilder
 import com.hazz.kotlinmvp.MyApplication
+import com.hazz.kotlinmvp.UserManager
 import com.hazz.kotlinmvp.api.ApiService
+import com.hazz.kotlinmvp.api.RuoYiApi
 import com.hazz.kotlinmvp.api.UrlConstant
 import com.hazz.kotlinmvp.utils.AppUtils
 import com.hazz.kotlinmvp.utils.NetworkUtil
@@ -23,6 +27,10 @@ object RetrofitManager{
 
     val service: ApiService by lazy (LazyThreadSafetyMode.SYNCHRONIZED){
         getRetrofit().create(ApiService::class.java)
+    }
+
+    val ruoyi : RuoYiApi by lazy (LazyThreadSafetyMode.SYNCHRONIZED){
+        getRetrofit2().create(RuoYiApi::class.java)
     }
 
     private var token:String by Preference("token","")
@@ -101,6 +109,14 @@ object RetrofitManager{
 
     }
 
+    private fun getRetrofit2() : Retrofit{
+        return Retrofit.Builder()
+                .baseUrl(UrlConstant.ROOT_URL)
+                .client(getClient())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+    }
+
     private fun getOkHttpClient(): OkHttpClient {
         //添加一个log拦截器,打印所有的log
         val httpLoggingInterceptor = HttpLoggingInterceptor()
@@ -123,5 +139,42 @@ object RetrofitManager{
                 .build()
     }
 
+    private fun sessionInterceptor():Interceptor{
+        return Interceptor { chain ->
+            val originalRequest = chain.request()
+            var originalResponse = chain.proceed(originalRequest)
+            Log.d("Retrofit","origin " + originalRequest.headers().toString() + originalRequest.body().toString())
+            if(originalResponse.code() == 302){
+                   originalResponse.body()?.close()
+                   val response = chain.proceed(getLoginRequest())
+                   if(response.isSuccessful){
+                       val cookies = response.headers().values("Set-Cookie")
+                       val session = cookies[0]
+                       UserManager.sessionId = session.substring(0,session.indexOf(";"))
+                       UserManager.saveUserInfo()
+                   }
+                   val newRequest = originalRequest.newBuilder().header("Cookie",UserManager.sessionId).build()
+                   originalResponse = chain.proceed(newRequest)
+            }
+              originalResponse
+        }
+    }
 
+    private fun getLoginRequest() : Request{
+        return Request.Builder()
+                .url(UrlConstant.ROOT_URL + "/login")
+                .post(FormBody.Builder()
+                        .add("username",UserManager.username)
+                        .add("password",UserManager.password)
+                        .add("rememberMe","false")
+                        .build())
+                .build()
+    }
+
+    private fun getClient(): OkHttpClient{
+        return OkHttpClient.Builder()
+                .addInterceptor(sessionInterceptor())
+                .followRedirects(false)
+                .build()
+    }
 }

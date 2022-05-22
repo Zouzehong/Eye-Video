@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Kotlin Mvp</string>
+    <string name="app_name">Eye Video</string>
 
     <string name="video_offline">缓存</string>
     <string name="video_attention">+ 关注</string>
@@ -15,10 +15,21 @@
     <string name="search_hot_keywords_tip">- 热门搜索词 -</string>
     <string name="search_result_count">-「%1$s」搜索结果共%2$d个-</string>
 
+    <string name="login_account_hint_text">请输入账号</string>
+    <string name="login_password_hint_text">请输入密码</string>
+    <string name="login_second_password_hint_text">请再次输入密码</string>
+    <string name="login_forget_password">忘记密码？</string>
+    <string name="login_button_text">登录</string>
+    <string name="register_button_text">注册</string>
+    <string name="confirm">确定</string>
+
 
     <string name="cancel">取消</string>
+    <string name="no_data">评论区还没有评论呢!</string>
+    <string name="edit_comment">快来留下你的评论</string>
+    <string name="send_comment">发送</string>
 
-    <string name="nickname">Xiho</string>
+    <string name="nickname">ZZH</string>
     <string name="view_homepage">查看个人主页 ></string>
     
     <string name="collection">收藏</string>
@@ -28,7 +39,9 @@
     <string name="mine_cache">我的缓存</string>
     <string name="view_history">观看记录</string>
     <string name="feedback">意见反馈</string>
-
+    <string name="sign_out">注销</string>
+    <string name="reset_pwd">重置密码</string>
+    <string name="total_count">%1$d条评论</string>
 
 
     <string name="loading_text">加载中&#8230;</string>
@@ -36,12 +49,7 @@
     <string name="data_error">数据获取失败(ㄒoㄒ)~~</string>
     <string name="empty_view_hint">暂时木有内容呀~~</string>
     <string name="splash_text">每日精选视频，让你大开眼界</string>
-    
-    
-    <string name="copy_right_notice">内容部分数据归原公司《开眼Eyepetizer》版权所有</string>
-    <string name="not_use_commercial">本APP只供学习交流和研究之用，\n请勿用作商业用途！</string>
-    <string name="since">copyright ©2017 Xiho.</string>
-    <string name="gitHub">GitHub</string>
+
 
     
 </resources>

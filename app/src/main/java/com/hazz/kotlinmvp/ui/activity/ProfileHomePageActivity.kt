@@ -6,6 +6,7 @@ import androidx.core.widget.NestedScrollView
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.hazz.kotlinmvp.R
+import com.hazz.kotlinmvp.UserManager
 import com.hazz.kotlinmvp.base.BaseActivity
 import com.hazz.kotlinmvp.utils.CleanLeakUtils
 import com.hazz.kotlinmvp.utils.StatusBarUtil
@@ -37,6 +38,8 @@ class ProfileHomePageActivity : BaseActivity() {
         //状态栏透明和间距处理
         StatusBarUtil.darkMode(this)
         StatusBarUtil.setPaddingSmart(this, toolbar)
+
+        nickname.text = UserManager.username
 
         refreshLayout.setOnMultiPurposeListener(object : SimpleMultiPurposeListener() {
             override fun onHeaderPulling(header: RefreshHeader?, percent: Float, offset: Int, bottomHeight: Int, extendHeight: Int) {
@@ -73,7 +76,7 @@ class ProfileHomePageActivity : BaseActivity() {
         toolbar.setNavigationOnClickListener { finish() }
 
 
-        refreshLayout.setOnRefreshListener {  mWebView.loadUrl("https://xuhaoblog.com/KotlinMvp") }
+        refreshLayout.setOnRefreshListener {  mWebView.loadUrl("") }
         refreshLayout.autoRefresh()
 
         mWebView.settings.javaScriptEnabled = true

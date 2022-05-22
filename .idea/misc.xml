@@ -3,16 +3,36 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/drawable/btn_radius_black_border_bg.xml" value="0.18" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/drawable/btn_radius_normal_bg.xml" value="0.18" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/drawable/btn_radius_theme_bg.xml" value="0.18" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/drawable/btn_send_normal.xml" value="0.2275" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/drawable/btn_send_pressed.xml" value="0.2275" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/drawable/comment_background.xml" value="0.182" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/drawable/comment_dialog_background.xml" value="0.194" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/drawable/comment_viewholder_background.xml" value="0.194" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/drawable/et_cursor.xml" value="0.117" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/drawable/et_round_bg.xml" value="0.117" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/drawable/login_btn_background.xml" value="0.18" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/drawable/tab_indicator.xml" value="0.1455" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/drawable/test.xml" value="0.1455" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/activity_category_detail.xml" value="0.14221014492753623" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/activity_main.xml" value="0.35208333333333336" />
-        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/activity_profile_homepage.xml" value="0.1" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/activity_profile_homepage.xml" value="0.152" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/activity_register.xml" value="0.33" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/activity_search.xml" value="0.1734375" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/activity_splash.xml" value="0.35208333333333336" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/activity_video_detail.xml" value="0.11141304347826086" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/activtiy_login.xml" value="0.33" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/comment_dialog_layout.xml" value="0.33" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/comment_layout.xml" value="0.25" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/comment_viewholder_layout.xml" value="0.4" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/dialog_input_text_msg.xml" value="0.28229166666666666" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/fragment_category.xml" value="0.171225937183384" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/fragment_hot.xml" value="0.14221014492753623" />
-        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/fragment_mine.xml" value="0.14221014492753623" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/fragment_mine.xml" value="0.2" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/fragment_rank.xml" value="0.1734375" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/item_cardview.xml" value="0.1734375" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/item_category.xml" value="0.1734375" />
@@ -23,7 +43,7 @@
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/item_home_banner.xml" value="0.1734375" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/item_home_content.xml" value="0.4" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/item_home_header.xml" value="0.1734375" />
-        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/item_video_detail_info.xml" value="0.1734375" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/item_video_detail_info.xml" value="0.2" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/item_video_footer.xml" value="0.1734375" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/item_video_small_card.xml" value="0.1734375" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/item_video_text_card.xml" value="0.1734375" />
@@ -37,6 +57,12 @@
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/layout_refresh_header_view.xml" value="0.1734375" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/layout_video_tag_item.xml" value="0.1734375" />
         <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/layout_watch_history.xml" value="0.1734375" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/login_layout.xml" value="0.1671875" />
+        <entry key="..\:/.metadata/KotlinMvp/app/src/main/res/layout/reset_pwd_dialog_layout.xml" value="0.264" />
+        <entry key="..\:/.metadata/KotlinMvp/multiple-status-view/src/main/res/layout/empty_view.xml" value="0.25" />
+        <entry key="..\:/.metadata/KotlinMvp/multiple-status-view/src/main/res/layout/error_view.xml" value="0.18333333333333332" />
+        <entry key="..\:/.metadata/KotlinMvp/multiple-status-view/src/main/res/layout/loading_view.xml" value="0.1734375" />
+        <entry key="..\:/.metadata/KotlinMvp/multiple-status-view/src/main/res/layout/no_network_view.xml" value="0.18333333333333332" />
       </map>
     </option>
   </component>
